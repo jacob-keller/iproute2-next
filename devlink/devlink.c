@@ -1233,6 +1233,8 @@ static int port_type_get(const char *typestr, enum devlink_port_type *p_type)
 		*p_type = DEVLINK_PORT_TYPE_ETH;
 	} else if (strcmp(typestr, "ib") == 0) {
 		*p_type = DEVLINK_PORT_TYPE_IB;
+	} else if (strcmp(typestr, "vfio") == 0) {
+		*p_type = DEVLINK_PORT_TYPE_VFIO;
 	} else {
 		pr_err("Unknown port type \"%s\"\n", typestr);
 		return -EINVAL;
@@ -4339,7 +4341,7 @@ static int cmd_dev(struct dl *dl)
 static void cmd_port_help(void)
 {
 	pr_err("Usage: devlink port show [ DEV/PORT_INDEX ]\n");
-	pr_err("       devlink port set DEV/PORT_INDEX [ type { eth | ib | auto} ]\n");
+	pr_err("       devlink port set DEV/PORT_INDEX [ type { eth | ib | auto | vfio} ]\n");
 	pr_err("       devlink port split DEV/PORT_INDEX count COUNT\n");
 	pr_err("       devlink port unsplit DEV/PORT_INDEX\n");
 	pr_err("       devlink port function set DEV/PORT_INDEX [ hw_addr ADDR ] [ state { active | inactive } ]\n");
@@ -4359,6 +4361,7 @@ static const char *port_type_name(uint32_t type)
 	case DEVLINK_PORT_TYPE_AUTO: return "auto";
 	case DEVLINK_PORT_TYPE_ETH: return "eth";
 	case DEVLINK_PORT_TYPE_IB: return "ib";
+	case DEVLINK_PORT_TYPE_VFIO: return "vfio";
 	default: return "<unknown type>";
 	}
 }
