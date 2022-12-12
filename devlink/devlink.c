@@ -4492,7 +4492,11 @@ static void pr_out_port(struct dl *dl, struct nlattr **tb)
 	if (tb[DEVLINK_ATTR_PORT_IBDEV_NAME]) {
 		print_string(PRINT_ANY, "ibdev", " ibdev %s",
 			     mnl_attr_get_str(tb[DEVLINK_ATTR_PORT_IBDEV_NAME]));
-		}
+	}
+	if (tb[DEVLINK_ATTR_PORT_VFIODEV_NAME]) {
+		print_string(PRINT_ANY, "device", " device %s",
+			     mnl_attr_get_str(tb[DEVLINK_ATTR_PORT_VFIODEV_NAME]));
+	}
 	if (tb[DEVLINK_ATTR_PORT_FLAVOUR]) {
 		uint16_t port_flavour =
 				mnl_attr_get_u16(tb[DEVLINK_ATTR_PORT_FLAVOUR]);
