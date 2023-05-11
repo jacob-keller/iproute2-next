@@ -1554,6 +1554,7 @@ static struct str_num_map port_flavour_map[] = {
 	{ .str = "pcivf", .num = DEVLINK_PORT_FLAVOUR_PCI_VF },
 	{ .str = "pcisf", .num = DEVLINK_PORT_FLAVOUR_PCI_SF },
 	{ .str = "virtual", .num = DEVLINK_PORT_FLAVOUR_VIRTUAL},
+	{ .str = "vfio", .num = DEVLINK_PORT_FLAVOUR_VFIO},
 	{ .str = NULL, },
 };
 
